@@ -1,0 +1,20 @@
+diff --git a/bundles/org.eclipse.launchbar.ui/META-INF/MANIFEST.MF b/bundles/org.eclipse.launchbar.ui/META-INF/MANIFEST.MF
+index ea9b035..6c1298f 100644
+--- a/bundles/org.eclipse.launchbar.ui/META-INF/MANIFEST.MF
++++ b/bundles/org.eclipse.launchbar.ui/META-INF/MANIFEST.MF
+@@ -6,7 +6,7 @@ Bundle-Version: 2.0.0.qualifier
+ Bundle-Activator: org.eclipse.launchbar.ui.internal.Activator
+ Bundle-Vendor: Eclipse CDT
+ Require-Bundle: org.eclipse.ui,
+- org.eclipse.core.runtime,
++ org.eclipse.core.runtime;bundle-version="3.11.0",
+  org.eclipse.e4.ui.workbench,
+  org.eclipse.e4.ui.model.workbench,
+  org.eclipse.e4.core.di,
+@@ -25,4 +25,5 @@ Export-Package: org.eclipse.launchbar.ui,
+  org.eclipse.launchbar.ui.internal.commands;x-internal:=true,
+  org.eclipse.launchbar.ui.internal.controls;x-internal:=true,
+  org.eclipse.launchbar.ui.internal.dialogs;x-internal:=true
+-Import-Package: javax.inject
++Import-Package: javax.annotation;version="1.1.0",
++ javax.inject
