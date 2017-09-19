@@ -4,19 +4,20 @@
 
 %global baserelease 1
 
-%global git_tag 1f95c6cd61c4c8024128b903bd40cca5a572a551
+%global git_tag 	b57aa9d3362bd46460d9c4d3ac64ac4e9ac893d9
 
 Epoch:          1
 Name:           %{?scl_prefix}eclipse-launchbar
-Version:        2.0.0
-Release:        0.1.git1f95c6c.%{baserelease}%{?dist}
+Version:        2.1.0
+Release:        1.%{baserelease}%{?dist}
 Summary:        Eclipse Launchbar plug-in
 License:        EPL
 URL:            https://wiki.eclipse.org/CDT/LaunchBar
 
 Source0:        http://git.eclipse.org/c/cdt/org.eclipse.launchbar.git/snapshot/org.eclipse.launchbar-%{git_tag}.tar.xz
 
-Patch0: eclipse-launchbar-annotation.patch
+# Following patch to specify javax-annotation is no longer needed.
+# Patch0: eclipse-launchbar-annotation.patch
 
 BuildArch:      noarch
 
@@ -33,7 +34,7 @@ An alternative to the default launcher toolbar in Eclipse.
 %{?scl:scl enable %{scl_maven} %{scl} - << "EOF"}
 set -e -x
 %setup -q -n org.eclipse.launchbar-%{git_tag}
-%patch0 -p1
+# %patch0 -p1
 find -name *.jar -exec rm -rf {} \;
 find -name *.class -exec rm -rf {} \;
 
@@ -59,6 +60,19 @@ set -e -x
 %files -f .mfiles
 
 %changelog
+* Mon Jan 23 2017 Mat Booth <mat.booth@redhat.com> - 1:2.1.0-1.1
+- Auto SCL-ise package for rh-eclipse46 collection
+
+* Mon Jan 16 2017 Jeff Johnston <jjohnstn@redhat.com> - 1:2.1.0-1
+- Update to Neon.2 release
+- Remove javax.annotation patch
+
+* Tue Oct 11 2016 Mat Booth <mat.booth@redhat.com> - 1:2.0.1-1.1
+- Auto SCL-ise package for rh-eclipse46 collection
+
+* Tue Oct 04 2016 Mat Booth <mat.booth@redhat.com> - 1:2.0.1-1
+- Update to Neon.1 release
+
 * Fri Jul 29 2016 Mat Booth <mat.booth@redhat.com> - 1:2.0.0-0.1.git1f95c6c.1
 - Auto SCL-ise package for rh-eclipse46 collection
 
